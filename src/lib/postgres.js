@@ -1,4 +1,6 @@
-const { Pool } = require("pg");
+const {
+   Pool
+} = require("pg");
 
 const credentials = {
    user: "postgres",
@@ -26,7 +28,9 @@ const fetch = async (SQL, ...params) => {
 const fetchALL = async (SQL, ...params) => {
    const client = await pool.connect();
    try {
-      const { rows } = await client.query(SQL, params.length ? params : []);
+      const {
+         rows
+      } = await client.query(SQL, params.length ? params : []);
       return rows;
    } finally {
       client.release();
