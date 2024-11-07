@@ -84,7 +84,8 @@ bot.on('contact', async (msg) => {
                   [{
                      text: localText.doriBtn2
                   }]
-               ]
+               ],
+               resize_keyboard: true
             }
          })
       }
