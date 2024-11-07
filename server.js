@@ -56,6 +56,7 @@ bot.on('contact', async (msg) => {
 
    if (msg.contact) {
       let phoneNumber = msg.contact.phone_number;
+      let name = msg.contact.first_name;
 
       if (msg.contact.user_id !== msg.from.id) {
          return bot.sendMessage(chatId, localText.contactErrorText, {
@@ -76,26 +77,20 @@ bot.on('contact', async (msg) => {
          phoneNumber = `+${phoneNumber}`;
       }
 
-      const addPhoneUser = await model.addUser(chatId, phoneNumber)
+      const addPhoneUser = await model.addUser(chatId, phoneNumber, name)
 
       if (addPhoneUser) {
-         bot.sendMessage(chatId, localText.successContact, {
+
+         bot.sendMessage(chatId, localText.selectDoriText, {
             reply_markup: {
                keyboard: [
                   [{
-                     text: localText.mainBtn1
+                     text: localText.doriBtn1
                   }],
                   [{
-                     text: localText.mainBtn2
-                  }],
-                  [{
-                     text: localText.mainBtn3
-                  }],
-                  [{
-                     text: localText.mainBtn4
-                  }],
-               ],
-               resize_keyboard: true
+                     text: localText.doriBtn2
+                  }]
+               ]
             }
          })
       }
@@ -114,6 +109,50 @@ bot.on('message', async (msg) => {
       bot.sendMessage(chatId, localText.mainBtn3Response)
    } else if (text == localText.mainBtn4) {
       bot.sendMessage(chatId, localText.mainBtn4Response)
+   } else if (text == localText.doriBtn1) {
+      bot.sendMessage(chatId, localText.successContact, {
+         reply_markup: {
+            keyboard: [
+               [{
+                  text: localText.mainBtn1
+               }],
+               [{
+                  text: localText.mainBtn2
+               }],
+               [{
+                  text: localText.mainBtn3
+               }],
+               [{
+                  text: localText.mainBtn4
+               }],
+            ],
+            resize_keyboard: true
+         }
+      }).then(async () => {
+         await model.editGuarantee(chatId, localText.doriBtn1)
+      })
+   } else if (text == localText.doriBtn2) {
+      bot.sendMessage(chatId, localText.successContact, {
+         reply_markup: {
+            keyboard: [
+               [{
+                  text: localText.mainBtn1
+               }],
+               [{
+                  text: localText.mainBtn2
+               }],
+               [{
+                  text: localText.mainBtn3
+               }],
+               [{
+                  text: localText.mainBtn4
+               }],
+            ],
+            resize_keyboard: true
+         }
+      }).then(async () => {
+         await model.editGuarantee(chatId, localText.doriBtn2)
+      })
    }
 })
 
