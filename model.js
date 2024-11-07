@@ -37,7 +37,7 @@ const editGuarantee = (chatId, guarantee) => {
       SET
          guarantee = $2
       WHERE
-         chatId = $1
+         chat_id = $1
       RETURNING *;
    `;
 
