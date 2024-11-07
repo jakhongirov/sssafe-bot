@@ -21,16 +21,7 @@ bot.onText(/\/start/, async (msg) => {
             keyboard: [
                [{
                   text: localText.mainBtn1
-               }],
-               [{
-                  text: localText.mainBtn2
-               }],
-               [{
-                  text: localText.mainBtn3
-               }],
-               [{
-                  text: localText.mainBtn4
-               }],
+               }]
             ],
             resize_keyboard: true
          }
@@ -103,28 +94,13 @@ bot.on('message', async (msg) => {
 
    if (text == localText?.mainBtn1) {
       bot.sendMessage(chatId, localText.mainBtn1Response)
-   } else if (text == localText.mainBtn2) {
-      bot.sendMessage(chatId, localText.mainBtn2Response)
-   } else if (text == localText.mainBtn3) {
-      bot.sendMessage(chatId, localText.mainBtn3Response)
-   } else if (text == localText.mainBtn4) {
-      bot.sendMessage(chatId, localText.mainBtn4Response)
    } else if (text == localText.doriBtn1) {
       bot.sendMessage(chatId, localText.successContact, {
          reply_markup: {
             keyboard: [
                [{
                   text: localText.mainBtn1
-               }],
-               [{
-                  text: localText.mainBtn2
-               }],
-               [{
-                  text: localText.mainBtn3
-               }],
-               [{
-                  text: localText.mainBtn4
-               }],
+               }]
             ],
             resize_keyboard: true
          }
@@ -137,16 +113,7 @@ bot.on('message', async (msg) => {
             keyboard: [
                [{
                   text: localText.mainBtn1
-               }],
-               [{
-                  text: localText.mainBtn2
-               }],
-               [{
-                  text: localText.mainBtn3
-               }],
-               [{
-                  text: localText.mainBtn4
-               }],
+               }]
             ],
             resize_keyboard: true
          }
