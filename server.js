@@ -21,6 +21,9 @@ bot.onText(/\/start/, async (msg) => {
             keyboard: [
                [{
                   text: localText.mainBtn1
+               }],
+               [{
+                  text: localText.mainBtn2
                }]
             ],
             resize_keyboard: true
@@ -94,12 +97,17 @@ bot.on('message', async (msg) => {
 
    if (text == localText?.mainBtn1) {
       bot.sendMessage(chatId, localText.mainBtn1Response)
+   } else if (text == localText?.mainBtn2) {
+      bot.sendMessage(chatId, localText.mainBtn2Response)
    } else if (text == localText.doriBtn1) {
       bot.sendMessage(chatId, localText.successContact, {
          reply_markup: {
             keyboard: [
                [{
                   text: localText.mainBtn1
+               }],
+               [{
+                  text: localText.mainBtn2
                }]
             ],
             resize_keyboard: true
@@ -113,6 +121,9 @@ bot.on('message', async (msg) => {
             keyboard: [
                [{
                   text: localText.mainBtn1
+               }],
+               [{
+                  text: localText.mainBtn2
                }]
             ],
             resize_keyboard: true
